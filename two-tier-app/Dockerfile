@@ -11,11 +11,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the requirements file into the container
-COPY requirements.txt .
+COPY requirement.txt .
 
 # Install app dependencies
 RUN pip install mysqlclient
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirement.txt
+RUN pip install --upgrade pip
 
 # Copy the rest of the application code
 COPY . .
